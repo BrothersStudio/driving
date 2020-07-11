@@ -25,7 +25,7 @@ public class TypingDetection : MonoBehaviour
     public AudioClip send_sfx;
     public AudioClip receive_sfx;
 
-    private void Reset()
+    public void Restart()
     {
         done_message = true;
         GetComponent<SpriteRenderer>().sprite = blank_phone;

@@ -24,6 +24,12 @@ public class Steering : MonoBehaviour
     float horn_cooldown = 0.5f;
     float last_horn = 0;
 
+    public void Restart()
+    {
+        animation_t = 0;
+        cam.transform.rotation = driving_cam_loc;
+    }
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -65,11 +71,11 @@ public class Steering : MonoBehaviour
         {
             animation_t = Mathf.Clamp01(animation_t + Time.deltaTime);
             wheel.transform.rotation = orig_rot;
-            if(drift == 0.0f)
+            if (drift == 0.0f)
             {
                 drift = Random.Range(drift_min, drift_max);
             }
-            if(car.transform.position.x > -x_bounds && car.transform.position.x < x_bounds)
+            if (car.transform.position.x > -x_bounds && car.transform.position.x < x_bounds)
             {
                 car.transform.Translate(new Vector3(drift * Time.deltaTime, 0, 0));
             }
