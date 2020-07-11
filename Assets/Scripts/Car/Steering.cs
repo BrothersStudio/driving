@@ -11,6 +11,10 @@ public class Steering : MonoBehaviour
     private float lateral_velocity = 20;
     private float x_bounds = 8.8f;
 
+    private float drift = 0.0f;
+    private float drift_min = -1.0f;
+    private float drift_max = 1.0f;
+
     private Transform cam;
     private Quaternion target_cam_loc;
     private Quaternion driving_cam_loc;
@@ -22,7 +26,7 @@ public class Steering : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         orig_rot = wheel.transform.rotation;
-
+    
         // Camera positions
         cam = Camera.main.transform;
         driving_cam_loc = cam.transform.rotation;
@@ -35,6 +39,7 @@ public class Steering : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
+            drift = 0.0f;
             animation_t = Mathf.Clamp01(animation_t - Time.deltaTime);
             if (Input.GetAxis("Mouse X") < 0 && car.transform.position.x > -x_bounds)
             {
@@ -51,6 +56,14 @@ public class Steering : MonoBehaviour
         {
             animation_t = Mathf.Clamp01(animation_t + Time.deltaTime);
             wheel.transform.rotation = orig_rot;
+            if(drift == 0.0f)
+            {
+                drift = Random.Range(drift_min, drift_max);
+            }
+            if(car.transform.position.x > -x_bounds && car.transform.position.x < x_bounds)
+            {
+                car.transform.Translate(new Vector3(drift * Time.deltaTime, 0, 0));
+            }
         }
     }
 
