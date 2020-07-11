@@ -8,6 +8,8 @@ public class SceneryMove : MonoBehaviour
 
     private void Update()
     {
+        speed += Time.deltaTime;
+
         transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime), Space.World);
         if (transform.position.z < -800)
         {
