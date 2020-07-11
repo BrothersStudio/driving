@@ -40,6 +40,14 @@ public class TypingDetection : MonoBehaviour
         NewTextArrives();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //NewTextArrives();
+        }
+    }
+
     private void NewTextArrives()
     {
         NewIncomingString(GetNewText());
@@ -115,8 +123,13 @@ public class TypingDetection : MonoBehaviour
             {
                 code = ",";
             }
+            else if (code == "slash")
+            {
+                code = "?";
+            }
             code = code.Replace("alpha", "");
             code = code.Replace("keypad", "");
+            //Debug.Log(code);
 
             if (code == char_to_match.ToLower())
             {
@@ -155,9 +168,16 @@ public class TypingDetection : MonoBehaviour
     {
         all_texts.Clear();
 
-        all_texts.Add(("Hey man, what's your address again?", "It's 2314 pineapple lane"));
-        all_texts.Add(("You coming to the party tonight?", "Idk, guess so, lol"));
-        all_texts.Add(("Dude, what's the wifi password?", "fr33kyd33ky"));
+        all_texts.Add(("hey man, what's your address again?", "it's 2814 north croskey lane"));
+        all_texts.Add(("you coming to the party later?", "idk, any girls coming?"));
+        all_texts.Add(("bro, you slept with my girlfriend??", "you weren't dating that long chill"));
+        all_texts.Add(("dude, what's the wifi password?", "fr33k7d33k7"));
+        all_texts.Add(("you good to drive after all those shots?", "haha yeah i drive better drunk"));
+        all_texts.Add(("can you pick up some chips on the way?", "only if you pay me back this time"));
+        all_texts.Add(("Your dad and I are worried about you", "whatever"));
+        all_texts.Add(("I really had fun last night :)", "no offence but i didn't, sorry"));
+        all_texts.Add(("are you really too busy to respond??", "nah just driving, what's up?"));
+        all_texts.Add(("where's mike live?", "he's at 8301 scottfield rd now"));
 
         all_texts.Shuffle();
     }
