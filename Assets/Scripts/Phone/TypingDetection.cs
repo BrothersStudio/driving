@@ -178,6 +178,9 @@ public class TypingDetection : MonoBehaviour
         all_texts.Add(("I really had fun last night :)", "no offence but i didn't, sorry"));
         all_texts.Add(("are you really too busy to respond??", "nah just driving, what's up?"));
         all_texts.Add(("where's mike live?", "he's at 8301 scottfield rd now"));
+        all_texts.Add(("what do you want from applebees?", "pick me up some wings?"));
+        all_texts.Add(("what's the name of that show?", "tiger king, man you gotta watch"));
+        all_texts.Add(("Charges remaining on your U-haul order...", "STOP"));
 
         all_texts.Shuffle();
     }
