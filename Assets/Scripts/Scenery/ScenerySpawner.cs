@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScenerySpawner : MonoBehaviour
 {
-    public GameObject tree;
+    public List<GameObject> trees;
     public GameObject road;
     public GameObject road_line;
 
@@ -66,7 +66,7 @@ public class ScenerySpawner : MonoBehaviour
 
     private void SpawnTree(bool left, float z)
     { 
-        GameObject new_tree = Instantiate(tree, transform);
+        GameObject new_tree = Instantiate(trees[Random.Range(0, trees.Count)], transform);
 
         Vector3 position = new Vector3(Random.Range(20f, 800f), new_tree.transform.position.y, z);
         if (left)
