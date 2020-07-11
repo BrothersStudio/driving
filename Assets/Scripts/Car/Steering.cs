@@ -9,6 +9,7 @@ public class Steering : MonoBehaviour
 
     public GameObject car;
     private float lateral_velocity = 20;
+    private float x_bounds = 8.8f;
 
     private Transform cam;
     private Quaternion target_cam_loc;
@@ -35,12 +36,12 @@ public class Steering : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             animation_t = Mathf.Clamp01(animation_t - Time.deltaTime);
-            if (Input.GetAxis("Mouse X") < 0)
+            if (Input.GetAxis("Mouse X") < 0 && car.transform.position.x > -x_bounds)
             {
                 wheel.transform.Rotate(new Vector3(0, -80 * Time.deltaTime, 0));
                 car.transform.Translate(new Vector3(-lateral_velocity * Time.deltaTime, 0, 0));
             }
-            if (Input.GetAxis("Mouse X") > 0)
+            if (Input.GetAxis("Mouse X") > 0 && car.transform.position.x < x_bounds)
             {
                 wheel.transform.Rotate(new Vector3(0, 80 * Time.deltaTime, 0));
                 car.transform.Translate(new Vector3(lateral_velocity * Time.deltaTime, 0, 0));
