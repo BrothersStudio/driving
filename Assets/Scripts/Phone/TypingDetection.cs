@@ -14,6 +14,8 @@ public class TypingDetection : MonoBehaviour
     private int match_index;
     private bool done_message = false;
 
+    public AudioClip typing_sfx;
+
     private void Start()
     {
         NewIncomingString();
@@ -80,10 +82,16 @@ public class TypingDetection : MonoBehaviour
                     outgoing_text.gameObject.SetActive(false);
                     sent_text.transform.parent.gameObject.SetActive(true);
                     sent_text.text = incoming_match_string.Item2;
+                    return;
                 }
 
                 match_index++;
                 HighlightUpToInd(match_index);
+
+                GetComponent<AudioSource>().clip = typing_sfx;
+                GetComponent<AudioSource>().pitch = Random.Range(0.99f, 1.01f);
+                GetComponent<AudioSource>().volume = 0.5f;
+                GetComponent<AudioSource>().Play();
             }
         }
     }
