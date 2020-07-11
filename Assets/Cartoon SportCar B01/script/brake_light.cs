@@ -8,9 +8,17 @@ public class brake_light : MonoBehaviour
 	public KeyCode keyboard;
 	public KeyCode keyboard2;
 
+    void Awake()
+    {
+        foreach (Light light in lights)
+        {
+            light.enabled = true;
+        }
+    }
 
-	void Update ()
-	{
+    void Update ()
+	{   
+        /*
 		foreach (Light light in lights) 
 		{
 			if (Input.GetKeyDown (keyboard)) 
@@ -28,7 +36,7 @@ public class brake_light : MonoBehaviour
 					}
 				}
 			}
-		}
+		}*/
 
 	}
 }
