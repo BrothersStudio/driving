@@ -8,6 +8,20 @@ public class EnemyCarSpawner : MonoBehaviour
     private float last_spawn = -5;
     public GameObject enemy_car;
     private float[] spawn_x = { -5, 0, 5 };
+    private List<GameObject> all_cars = new List<GameObject>();
+     
+    public void Restart()
+    {
+        foreach (GameObject car in all_cars)
+        {
+            Destroy(car);
+        }
+        all_cars.Clear();
+        
+        last_spawn = -5;
+
+        Start();
+    }
 
     private void Start()
     {
@@ -30,10 +44,10 @@ public class EnemyCarSpawner : MonoBehaviour
     private void SpawnCars(float dist)
     {
         last_spawn = Time.timeSinceLevelLoad;
-        Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist), Quaternion.identity, transform);
+        all_cars.Add(Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist), Quaternion.identity, transform));
         if (Random.Range(0f, 1f) < 0.5f)
         {
-            Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist), Quaternion.identity, transform);
+            all_cars.Add(Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist), Quaternion.identity, transform));
         }
     }
 }

@@ -8,11 +8,23 @@ public class ScenerySpawner : MonoBehaviour
     public GameObject road;
     public GameObject road_line;
 
+    public List<GameObject> all_scenery = new List<GameObject>();
+
+    public void Restart()
+    {
+        foreach (GameObject thing in all_scenery)
+        {
+            Destroy(thing);
+        }
+        all_scenery.Clear();
+
+        Start();
+    }
+
     private void Start()
     {
         SpawnRoads();
         SpawnLines();
-
         SpawnTrees();
     }
 

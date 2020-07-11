@@ -7,7 +7,7 @@ public class Score : MonoBehaviour
 {
     private float score = 0;
 
-    private void Reset()
+    public void Restart()
     {
         score = 0;
     }
@@ -21,5 +21,10 @@ public class Score : MonoBehaviour
     public void Text()
     {
         score *= 2;
+    }
+
+    public float GetScore()
+    {
+        return score;
     }
 }
