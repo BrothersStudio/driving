@@ -20,22 +20,31 @@ public class ScenerySpawner : MonoBehaviour
                 if (roll < 0.4f)
                 {
                     // Left tree
-                    Instantiate(tree, transform);
+                    SpawnTree(true);
                 }
                 else if (roll < 0.8f)
                 {
                     // Right tree
-                    GameObject new_tree = Instantiate(tree, transform);
-                    new_tree.transform.position = new Vector3(-new_tree.transform.position.x, new_tree.transform.position.y, new_tree.transform.position.z);
+                    SpawnTree(false);
                 }
                 else
                 {
                     // Both
-                    Instantiate(tree, transform);
-                    GameObject new_tree = Instantiate(tree, transform);
-                    new_tree.transform.position = new Vector3(-new_tree.transform.position.x, new_tree.transform.position.y, new_tree.transform.position.z);
+                    SpawnTree(true);
+                    SpawnTree(false);
                 }
             }
         }
+    }
+
+    private void SpawnTree(bool left)
+    {
+        GameObject new_tree = Instantiate(tree, transform);
+        Vector3 position = new Vector3(Random.Range(10f, 20f), new_tree.transform.position.y, new_tree.transform.position.z);
+        if (left)
+        {
+            position.x = -position.x;
+        }
+        new_tree.transform.position = position;
     }
 }
