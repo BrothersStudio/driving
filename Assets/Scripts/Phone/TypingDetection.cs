@@ -168,6 +168,8 @@ public class TypingDetection : MonoBehaviour
     {
         all_texts.Clear();
 
+        //all_texts.Add(("",""));
+
         all_texts.Add(("hey man, what's your address again?", "it's 2814 north croskey lane"));
         all_texts.Add(("you coming to the party later?", "idk, any girls coming?"));
         all_texts.Add(("bro, you slept with my girlfriend??", "you weren't dating that long chill"));
@@ -181,6 +183,11 @@ public class TypingDetection : MonoBehaviour
         all_texts.Add(("what do you want from applebees?", "pick me up some wings?"));
         all_texts.Add(("what's the name of that show?", "tiger king, man you gotta watch"));
         all_texts.Add(("Charges remaining on your U-haul order...", "STOP"));
+        all_texts.Add(("hey man, I stole those sweet shoes!","haha, cool stealing bro"));
+        all_texts.Add(("Whats your dogs name?","pippinpaddleopsicopolis"));
+        all_texts.Add(("Dude why'd you steal my car?","don't worry about it dude haha"));
+        all_texts.Add(("whats the flavor of juice grandma likes?","mango watermelon kiwi banana"));
+        all_texts.Add(("Whats the code for the shed lock","9261"));
 
         all_texts.Shuffle();
     }
