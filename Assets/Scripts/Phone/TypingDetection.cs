@@ -7,6 +7,7 @@ public class TypingDetection : MonoBehaviour
 {
     public TMP_Text incoming_text;
     public TMP_Text outgoing_text;
+    public TMP_Text sent_text;
 
     private (string, string) incoming_match_string = ("Hey man, what's your address again?", "It's 2314 pineapple lane");
     private string char_to_match;
@@ -71,10 +72,16 @@ public class TypingDetection : MonoBehaviour
             }
             code = code.Replace("alpha", "");
             code = code.Replace("keypad", "");
-            //Debug.Log(code);
 
             if (code == char_to_match.ToLower())
             {
+                if (done_message)
+                {
+                    outgoing_text.gameObject.SetActive(false);
+                    sent_text.transform.parent.gameObject.SetActive(true);
+                    sent_text.text = incoming_match_string.Item2;
+                }
+
                 match_index++;
                 HighlightUpToInd(match_index);
             }
