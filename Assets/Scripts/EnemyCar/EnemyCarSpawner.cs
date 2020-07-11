@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyCarSpawner : MonoBehaviour
 {
-    private float cooldown = 5;
+    private float cooldown = 3;
     private float last_spawn = -5;
     public GameObject enemy_car;
     private float[] spawn_x = { -5, 0, 5 };
