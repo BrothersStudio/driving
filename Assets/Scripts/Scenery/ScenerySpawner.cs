@@ -16,29 +16,19 @@ public class ScenerySpawner : MonoBehaviour
         SpawnTrees();
     }
 
-    private void Update()
-    {
-        if (Time.timeSinceLevelLoad > last_spawn + spawn_cooldown)
-        {
-            last_spawn = Time.timeSinceLevelLoad;
-
-
-        }
-    }
-
     private void SpawnRoads()
     {
-        for (float i = -800; i <= 803; i += 8.8f)
+        float i;
+        for (i = -800; i <= 803; i += 8.8f)
         {
-            Debug.Log(i);
-            Vector3 vector3 = new Vector3(0, 0, i);
-            Instantiate(road, vector3, road.transform.rotation, transform);
+            Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, transform);
         }
+        Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, transform);
     }
 
     private void SpawnTrees()
     {
-        for (int i = -800; i < 800; i += 2)
+        for (int i = -800; i < 800; i += 1)
         {
             if (Random.Range(0f, 1f) < 0.50f)
             {
@@ -68,7 +58,7 @@ public class ScenerySpawner : MonoBehaviour
     { 
         GameObject new_tree = Instantiate(tree, transform);
 
-        Vector3 position = new Vector3(Random.Range(10f, 200f), new_tree.transform.position.y, z);
+        Vector3 position = new Vector3(Random.Range(10f, 400f), new_tree.transform.position.y, z);
         if (left)
         {
             position.x = -position.x;
