@@ -57,7 +57,7 @@ public class TypingDetection : MonoBehaviour
     private void OnGUI()
     {
         Event e = Event.current;
-        if (e.isKey)
+        if (e.isKey && !Input.GetMouseButton(0))
         {
             // Some processing
             string code = e.keyCode.ToString().ToLower();
