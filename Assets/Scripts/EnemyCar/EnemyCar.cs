@@ -63,7 +63,8 @@ public class EnemyCar : MonoBehaviour
     {
         Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z + 10f));
         RaycastHit hit;
-        if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), transform.TransformDirection(Vector3.forward), out hit, 10f))
+        if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), transform.TransformDirection(Vector3.forward), out hit, 10f)
+            && hit.collider.tag == "EnemyCar")
         {
             float colliderSpeed = hit.collider.GetComponent<EnemyCar>().getSpeed();
             if(colliderSpeed != this.speed)
