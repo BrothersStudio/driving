@@ -740,7 +740,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0c1164a1d64f6fd49aed640913fc6d16,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 20000
+      value: 40000
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0c1164a1d64f6fd49aed640913fc6d16,
         type: 3}
@@ -1128,6 +1128,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500976, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9515912, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9546216, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9560830, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 11406430, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1333,6 +1349,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004330332}
   m_CullTransparentMesh: 0
+--- !u!1 &1181768361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1181768362}
+  - component: {fileID: 1181768363}
+  m_Layer: 0
+  m_Name: Enemy Car Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1181768362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181768361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1181768363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181768361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 571c949d9854e7f4598a15eff127b673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_car: {fileID: 136596, guid: 23f8c5a93bb7af746995d8b919a1c917, type: 3}
 --- !u!1 &1348858052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,7 +1801,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0c1164a1d64f6fd49aed640913fc6d16,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 20000
+      value: 40000
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0c1164a1d64f6fd49aed640913fc6d16,
         type: 3}
