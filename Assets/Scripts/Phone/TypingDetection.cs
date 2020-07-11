@@ -70,7 +70,8 @@ public class TypingDetection : MonoBehaviour
                 code = " ";
             }
             code = code.Replace("alpha", "");
-            Debug.Log(code);
+            code = code.Replace("keypad", "");
+            //Debug.Log(code);
 
             if (code == char_to_match.ToLower())
             {
