@@ -56,7 +56,7 @@ public class ScenerySpawner : MonoBehaviour
     { 
         GameObject new_tree = Instantiate(tree, transform);
 
-        Vector3 position = new Vector3(Random.Range(10f, 800f), new_tree.transform.position.y, z);
+        Vector3 position = new Vector3(Random.Range(20f, 800f), new_tree.transform.position.y, z);
         if (left)
         {
             position.x = -position.x;

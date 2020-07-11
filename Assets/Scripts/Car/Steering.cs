@@ -8,7 +8,7 @@ public class Steering : MonoBehaviour
     private Quaternion orig_rot;
 
     public GameObject car;
-    private float lateral_velocity = 10;
+    private float lateral_velocity = 20;
 
     private void Awake()
     {
