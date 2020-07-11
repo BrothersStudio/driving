@@ -21,6 +21,9 @@ public class Steering : MonoBehaviour
     private Quaternion texting_cam_loc;
     float animation_t = 0;
 
+    float horn_cooldown = 0.5f;
+    float last_horn = 0;
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -50,6 +53,12 @@ public class Steering : MonoBehaviour
             {
                 wheel.transform.Rotate(new Vector3(0, 80 * Time.deltaTime, 0));
                 car.transform.Translate(new Vector3(lateral_velocity * Time.deltaTime, 0, 0));
+            }
+
+            if (Input.GetKey(KeyCode.Space) && Time.timeSinceLevelLoad > last_horn + horn_cooldown)
+            {
+                last_horn = Time.timeSinceLevelLoad;
+                GetComponent<AudioSource>().Play();
             }
         }
         else
