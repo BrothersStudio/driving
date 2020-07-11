@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class ScenerySpawner : MonoBehaviour
 {
-    private float last_spawn = 0;
-    private float spawn_cooldown = 0.2f;
     public GameObject tree;
-
     public GameObject road;
 
     private void Start()
