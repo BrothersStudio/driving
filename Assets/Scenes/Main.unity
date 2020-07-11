@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 8900000, guid: a7bed68887a07e34394d4191b3081359, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3093535, g: 0.5066879, b: 0.981266, a: 1}
+  m_IndirectSpecularColor: {r: 0.38818806, g: 0.5570793, b: 0.9847444, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -1729,6 +1729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2034356160}
   - component: {fileID: 2034356161}
+  - component: {fileID: 2034356162}
   m_Layer: 0
   m_Name: Phone
   m_TagString: Untagged
@@ -1801,6 +1802,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2034356162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034356159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e79b512602cc2442b7c514831283b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  incoming_text: {fileID: 59009018}
+  outgoing_text: {fileID: 1473356000}
 --- !u!1 &2072056193
 GameObject:
   m_ObjectHideFlags: 0
