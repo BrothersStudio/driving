@@ -126,6 +126,8 @@ public class TypingDetection : MonoBehaviour
                     sent_text.transform.parent.gameObject.SetActive(true);
                     sent_text.text = current_match_string.Item2;
 
+                    FindObjectOfType<Score>().Text();
+
                     // Send message sfx
                     GetComponent<AudioSource>().clip = send_sfx;
                     GetComponent<AudioSource>().volume = 1f;
@@ -170,7 +172,8 @@ public class TypingDetection : MonoBehaviour
         }
         else
         {
-            return (null, null);
+            AddTexts();
+            return GetNewText();
         }
     }
 }
