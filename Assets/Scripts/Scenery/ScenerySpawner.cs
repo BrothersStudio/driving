@@ -6,11 +6,13 @@ public class ScenerySpawner : MonoBehaviour
 {
     public GameObject tree;
     public GameObject road;
-    public Transform road_parent;
+    public GameObject road_line;
 
     private void Start()
     {
         SpawnRoads();
+        SpawnLines();
+
         SpawnTrees();
     }
 
@@ -19,9 +21,19 @@ public class ScenerySpawner : MonoBehaviour
         float i;
         for (i = -800; i <= 803; i += 8.8f)
         {
-            Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, road_parent);
+            Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, transform);
         }
-        Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, road_parent);
+        Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, transform);
+    }
+
+    private void SpawnLines()
+    {
+        float i;
+        for (i = -800; i <= 800; i += 10f)
+        {
+            Instantiate(road_line, new Vector3(2.8f, 0, i), road.transform.rotation, transform);
+            Instantiate(road_line, new Vector3(-2.8f, 0, i), road.transform.rotation, transform);
+        }
     }
 
     private void SpawnTrees()
