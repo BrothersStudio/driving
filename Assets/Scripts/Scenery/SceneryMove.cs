@@ -9,9 +9,9 @@ public class SceneryMove : MonoBehaviour
     private void Update()
     {
         transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime), Space.World);
-        if (transform.position.z < -400)
+        if (transform.position.z < -800)
         {
-            Destroy(gameObject);
+            transform.position = new Vector3(transform.position.x, transform.position.y, 800);
         }
     }
 }
