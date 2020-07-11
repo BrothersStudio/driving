@@ -6,6 +6,7 @@ public class ScenerySpawner : MonoBehaviour
 {
     public GameObject tree;
     public GameObject road;
+    public Transform road_parent;
 
     private void Start()
     {
@@ -18,9 +19,9 @@ public class ScenerySpawner : MonoBehaviour
         float i;
         for (i = -800; i <= 803; i += 8.8f)
         {
-            Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, transform);
+            Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, road_parent);
         }
-        Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, transform);
+        Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, road_parent);
     }
 
     private void SpawnTrees()
@@ -55,7 +56,7 @@ public class ScenerySpawner : MonoBehaviour
     { 
         GameObject new_tree = Instantiate(tree, transform);
 
-        Vector3 position = new Vector3(Random.Range(10f, 400f), new_tree.transform.position.y, z);
+        Vector3 position = new Vector3(Random.Range(10f, 800f), new_tree.transform.position.y, z);
         if (left)
         {
             position.x = -position.x;
