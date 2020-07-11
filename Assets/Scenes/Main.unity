@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: It's 2314 p<color=#968482>ineapple lane</color>
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b35e1c0d85af3a44a88454b9406e0b7, type: 2}
   m_sharedMaterial: {fileID: 3794369538453475408, guid: 3b35e1c0d85af3a44a88454b9406e0b7,
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hey man, what's your address again?
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b35e1c0d85af3a44a88454b9406e0b7, type: 2}
   m_sharedMaterial: {fileID: 3794369538453475408, guid: 3b35e1c0d85af3a44a88454b9406e0b7,
@@ -1592,7 +1592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1473355999
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: It's 2314 p<color=#968482>ineapple lane</color>
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b35e1c0d85af3a44a88454b9406e0b7, type: 2}
   m_sharedMaterial: {fileID: 3794369538453475408, guid: 3b35e1c0d85af3a44a88454b9406e0b7,
@@ -1831,7 +1831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1671983296
 Transform:
   m_ObjectHideFlags: 0
@@ -1885,7 +1885,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e426510e1aeec804d8cb895f220f457c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2199,7 +2199,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: faa1d41c63afba044acdf630bf1517c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2286,7 +2286,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0385f46635f766649a29e21ee0d5d818, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c10174de4c11118438054ce7f23b5dca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2309,10 +2309,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e79b512602cc2442b7c514831283b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blank_phone: {fileID: 21300000, guid: c10174de4c11118438054ce7f23b5dca, type: 3}
+  phone_messages: {fileID: 21300000, guid: 0385f46635f766649a29e21ee0d5d818, type: 3}
   incoming_text: {fileID: 59009018}
   outgoing_text: {fileID: 1473356000}
   sent_text: {fileID: 5502260}
   typing_sfx: {fileID: 8300000, guid: 1e0dc9f2eb62dbc4998cda707ca07f83, type: 3}
+  send_sfx: {fileID: 8300000, guid: b96befda5d3544348acfb51a34ee2204, type: 3}
+  receive_sfx: {fileID: 8300000, guid: f68cdca4775a2834b92a3b8110e2844b, type: 3}
 --- !u!82 &2034356163
 AudioSource:
   m_ObjectHideFlags: 0
