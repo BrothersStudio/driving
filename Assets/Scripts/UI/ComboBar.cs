@@ -6,7 +6,7 @@ using TMPro;
 public class ComboBar : MonoBehaviour
 {
     private GameObject bar;
-    private float decrease_speed = 0.070f;
+    private float decrease_speed = 0.025f;
     private bool animating = false;
 
     public void Restart()
