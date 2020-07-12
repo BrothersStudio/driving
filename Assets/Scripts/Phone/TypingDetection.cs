@@ -147,7 +147,7 @@ public class TypingDetection : MonoBehaviour
             {
                 code = "?";
             }
-            else if (code == "enter")
+            else if (code.Contains("enter"))
             {
                 code = "return";
             }
