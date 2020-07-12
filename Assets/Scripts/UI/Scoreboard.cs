@@ -86,7 +86,8 @@ public class Scoreboard : MonoBehaviour
         
         saved_scores.Add(("mike", 691));
         saved_scores.Add(("will", 572));
-        saved_scores.Add(("emily", 8));
+        saved_scores.Add(("emily", 382));
+        saved_scores.Add(("nick", 110));
         saved_scores.Add(("barry", 7));
         saved_scores.Add(("elizabeth", 6));
         saved_scores.Add(("stacey", 5));

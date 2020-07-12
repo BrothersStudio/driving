@@ -46,6 +46,7 @@ public class TypingDetection : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = blank_phone;
         incoming_text.transform.parent.gameObject.SetActive(false);
         outgoing_text.gameObject.SetActive(false);
+        sent_text.transform.parent.gameObject.SetActive(false);
 
         Start();
     }
