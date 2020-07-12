@@ -7,7 +7,7 @@ public class EnemyCar : MonoBehaviour
 {
     GameController game_con;
 
-    private float speed;
+    private float speed = 0;
 
     private AudioSource source;
 
@@ -21,7 +21,7 @@ public class EnemyCar : MonoBehaviour
     private void Start()
     {
         source = GetComponent<AudioSource>();
-        speed = Random.Range(15.0f, 30.0f);
+        speed += Random.Range(15.0f, 30.0f);
         Material paint_chosen = paint_colors[Random.Range(0, paint_colors.Count)];
 
         List<Material> materials = transform.Find("carrosserie").GetComponent<MeshRenderer>().materials.ToList();

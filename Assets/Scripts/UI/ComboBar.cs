@@ -5,8 +5,6 @@ using TMPro;
 
 public class ComboBar : MonoBehaviour
 {
-    public AudioSource combo_loss_sfx;
-
     private GameObject bar;
     private float decrease_speed = 0.070f;
     private bool animating = false;
@@ -27,7 +25,6 @@ public class ComboBar : MonoBehaviour
     {
         animating = true;
         bar.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
-        combo_loss_sfx.Play();
         transform.parent.Find("Multiplier").GetComponent<TMP_Text>().text = combo.ToString() + "x";
         transform.parent.Find("Multiplier").GetComponent<TMP_Text>().enabled = true;
     }
@@ -44,6 +41,7 @@ public class ComboBar : MonoBehaviour
                 animating = false;
 
                 FindObjectOfType<Score>().ComboOver();
+                transform.parent.parent.GetComponent<AudioSource>().Play();
 
                 transform.parent.Find("Multiplier").GetComponent<TMP_Text>().text = "";
                 transform.parent.Find("Multiplier").GetComponent<TMP_Text>().enabled = false;
