@@ -14,6 +14,11 @@ public class GameController : MonoBehaviour
 
     public GameObject player;
 
+    public bool IsGameOver()
+    {
+        return waiting_for_restart;
+    }
+
     public void GameOver()
     {
         if (!waiting_for_restart)

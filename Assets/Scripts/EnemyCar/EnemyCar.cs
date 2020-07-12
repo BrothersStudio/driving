@@ -5,11 +5,18 @@ using UnityEngine;
 
 public class EnemyCar : MonoBehaviour
 {
+    GameController game_con;
+
     private float speed;
 
     private AudioSource source;
 
     public List<Material> paint_colors;
+
+    private void Awake()
+    {
+        game_con = FindObjectOfType<GameController>();
+    }
 
     private void Start()
     {
@@ -69,7 +76,7 @@ public class EnemyCar : MonoBehaviour
     {
         Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z + 10f));
         RaycastHit hit;
-        if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), transform.TransformDirection(Vector3.forward), out hit, 10f)
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), transform.TransformDirection(Vector3.forward), out hit, 10f)
             && hit.collider.tag == "EnemyCar")
         {
             float colliderSpeed = hit.collider.GetComponent<EnemyCar>().getSpeed();
@@ -78,9 +85,13 @@ public class EnemyCar : MonoBehaviour
                 this.speed = colliderSpeed;
             }
         } 
-        if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), transform.TransformDirection(Vector3.forward), out hit, 10f) && hit.collider.CompareTag("Player"))
+
+        // Play horn sound
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), transform.TransformDirection(Vector3.forward), out hit, 10f) && 
+            hit.collider.CompareTag("Player") &&
+            !game_con.IsGameOver())
         {
-            source.pitch = Random.Range(0.75f, 1.25f);
+            source.pitch = Random.Range(0.90f, 1.1f);
             source.Play();
         }
     }
