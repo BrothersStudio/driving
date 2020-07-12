@@ -48,7 +48,7 @@ public class EnemyCarSpawner : MonoBehaviour
 
     private void Update()
     {
-        speed_increase += Time.deltaTime;
+        speed_increase += Time.deltaTime / 2f;
         difficulty_timer += Time.deltaTime;
 
 
