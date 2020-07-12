@@ -183,8 +183,8 @@ public class TypingDetection : MonoBehaviour
         all_texts.Add(("are you really too busy to respond??", "nah just driving, what's up?"));
         all_texts.Add(("where's mike live?", "he's at 8301 scottfield rd now"));
         all_texts.Add(("what do you want from applebees?", "pick me up some wings?"));
+        all_texts.Add(("you coming tomorrow?", "nah i don't think so"));
         all_texts.Add(("what's the name of that show?", "tiger king, man you gotta watch"));
-        all_texts.Add(("Whats your dogs name?","pippinpaddleopsido"));
         all_texts.Add(("did you take the car?","don't worry about it man"));
         all_texts.Add(("whats the flavor of juice grandma likes?","mango watermelon kiwi banana"));
         all_texts.Add(("Whats the code for the shed lock","it's 9261"));
@@ -193,7 +193,7 @@ public class TypingDetection : MonoBehaviour
         all_texts.Add(("wanna meet up friday 6pm?","sorry, i'll be busy gaming 6 to 12"));
         all_texts.Add(("maybe you shouldn't text and drive??","don't worry, i'm a pro at mario kart"));
         all_texts.Add(("how much did your phone cost you?","it was about 600 dollars"));
-        all_texts.Add(("wtf is your problem???","i didn't do anything"));
+        all_texts.Add(("wtf is your problem???","dunno"));
         all_texts.Add(("hey where does ur sister live now?","shes at 3412 lakeview drive"));
         all_texts.Add(("do you prefer mango or strawberry?","blueberry, obviously"));
         all_texts.Add(("hey whats ur steam username?","Beefcakes9900"));
