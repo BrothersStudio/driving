@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour
         {
             waiting_for_restart = true;
 
+            // Stop other sounds
+            FindObjectOfType<MusicController>().Stop();
             player.GetComponent<AudioSource>().Stop();
             GetComponent<AudioSource>().Play();
 
@@ -61,6 +63,7 @@ public class GameController : MonoBehaviour
         waiting_for_restart = false;
         game_over_screen.SetActive(false);
 
+        FindObjectOfType<MusicController>().Play();
         player.GetComponent<AudioSource>().Play();
         GetComponent<AudioSource>().Stop();
 
