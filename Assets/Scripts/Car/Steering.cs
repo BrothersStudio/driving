@@ -8,6 +8,8 @@ public class Steering : MonoBehaviour
     private Quaternion orig_rot;
 
     public GameObject car;
+    private Direction direction_track = Direction.None;
+    private float laternal_velocity_lerp = 0;
     private float lateral_velocity = 20;
     private float x_bounds = 8f;
 
@@ -26,6 +28,9 @@ public class Steering : MonoBehaviour
 
     public void Restart()
     {
+        direction_track = 0;
+        laternal_velocity_lerp = 0;
+
         animation_t = 0;
         cam.transform.rotation = driving_cam_loc;
     }
@@ -45,20 +50,40 @@ public class Steering : MonoBehaviour
     private void Update()
     {
         cam.rotation = Quaternion.Lerp(driving_cam_loc, texting_cam_loc, SmoothStart(animation_t));
+        laternal_velocity_lerp = Mathf.Clamp01(laternal_velocity_lerp + (Time.deltaTime * 2));
 
         if (Input.GetMouseButton(0))
         {
             drift = 0.0f;
             animation_t = Mathf.Clamp01(animation_t - Time.deltaTime);
+
             if (Input.GetAxis("Mouse X") < 0 && car.transform.position.x > -x_bounds)
             {
+                if (direction_track != Direction.Left)
+                {
+                    laternal_velocity_lerp = 0;
+                }
+
                 wheel.transform.Rotate(new Vector3(0, -80 * Time.deltaTime, 0));
-                car.transform.Translate(new Vector3(-lateral_velocity * Time.deltaTime, 0, 0));
+                car.transform.Translate(new Vector3(-Mathf.Lerp(0, lateral_velocity, laternal_velocity_lerp) * Time.deltaTime, 0, 0));
+
+                direction_track = Direction.Left;
             }
-            if (Input.GetAxis("Mouse X") > 0 && car.transform.position.x < x_bounds)
+            else if (Input.GetAxis("Mouse X") > 0 && car.transform.position.x < x_bounds)
             {
+                if (direction_track != Direction.Right)
+                {
+                    laternal_velocity_lerp = 0;
+                }
+
                 wheel.transform.Rotate(new Vector3(0, 80 * Time.deltaTime, 0));
-                car.transform.Translate(new Vector3(lateral_velocity * Time.deltaTime, 0, 0));
+                car.transform.Translate(new Vector3(Mathf.Lerp(0, lateral_velocity, laternal_velocity_lerp) * Time.deltaTime, 0, 0));
+
+                direction_track = Direction.Right;
+            }
+            else
+            {
+                direction_track = Direction.None;
             }
 
             if (Input.GetKey(KeyCode.Space) && Time.timeSinceLevelLoad > last_horn + horn_cooldown)
@@ -99,5 +124,17 @@ public class Steering : MonoBehaviour
     private float SmoothStart(float t)
     {
         return t * t * t * t;
+    }
+
+    private float SmoothStep(float t)
+    {
+        return 3 * t * t - 2 * t * t * t;
+    }
+
+    private enum Direction
+    {
+        None,
+        Left,
+        Right
     }
 }

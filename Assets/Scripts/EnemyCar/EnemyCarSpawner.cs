@@ -38,8 +38,6 @@ public class EnemyCarSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnCars(200f);
-        SpawnCars(300f);
         SpawnCars(400f);
         SpawnCars(500f);
         SpawnCars(600f);
