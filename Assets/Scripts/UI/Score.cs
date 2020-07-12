@@ -5,7 +5,7 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
-    private int prev_score = 0;
+    private float played_sound_for_score = 0;
     private float score = 0;
     private int combo = 1;
 
@@ -18,7 +18,7 @@ public class Score : MonoBehaviour
 
     public void Restart()
     {
-        prev_score = 0;
+        played_sound_for_score = 0;
         score = 0;
         combo = 1;
         
@@ -28,14 +28,19 @@ public class Score : MonoBehaviour
     private void Update()
     {
         score += Time.deltaTime * combo;
-        GetComponent<TMP_Text>().text = $"{score:000000}";
+
+        float display_score = Mathf.Floor(score);
+        GetComponent<TMP_Text>().text = $"{display_score:000000}";
         
-        if (prev_score != Mathf.Floor(score) && !game_con.IsGameOver())
+        if ((Mathf.Floor(display_score) % 10 == 0)  && 
+            Mathf.Floor(display_score) != played_sound_for_score &&
+            !game_con.IsGameOver())
         {
-            GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+            played_sound_for_score = Mathf.Floor(score);
+
+            GetComponent<AudioSource>().pitch = Random.Range(0.95f, 1.05f);
             GetComponent<AudioSource>().Play();
         }
-        prev_score = (int)score;
     }
 
     public void Text()

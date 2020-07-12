@@ -29,10 +29,12 @@ public class TypingDetection : MonoBehaviour
     public ParticleSystem receive_particles;
 
     private GameController game_con;
+    private Tutorial tutorial;
 
     private void Awake()
     {
         game_con = FindObjectOfType<GameController>();
+        tutorial = FindObjectOfType<Tutorial>();
     }
 
     public void Restart()
@@ -51,7 +53,7 @@ public class TypingDetection : MonoBehaviour
     private void Start()
     {
         AddTexts();
-        Invoke("NewTextArrives", 3);
+        Invoke("NewTextArrives", 5);
     }
 
     private void Update()
@@ -70,6 +72,8 @@ public class TypingDetection : MonoBehaviour
 
     private void NewIncomingString((string, string) new_message)
     {
+        tutorial.TextingExplanation();
+
         if (new_message.Item1 != null)
         {
             done_message = false;
@@ -167,6 +171,8 @@ public class TypingDetection : MonoBehaviour
                     GetComponent<AudioSource>().volume = 1f;
                     GetComponent<AudioSource>().Play();
 
+                    tutorial.RemoveTutorial();
+
                     done_message = true;
                     Invoke("NewTextArrives", 3);
                 }
@@ -189,35 +195,36 @@ public class TypingDetection : MonoBehaviour
     {
         all_texts.Clear();
         
-        all_texts.Add(("hey man, what's your address again?", "it's 2814 north croskey lane"));
-        all_texts.Add(("you coming to the party later?", "idk, any girls coming?"));
-        all_texts.Add(("bro, you slept with my girlfriend??", "you weren't dating that long chill"));
+        all_texts.Add(("hey man, what's your address again?", "its 814 north croskey ln"));
+        all_texts.Add(("you coming to the party later?", "idk any girls coming"));
+        all_texts.Add(("bro, you slept with my girlfriend??", "you werent dating that long chill"));
         all_texts.Add(("dude, what's the wifi password?", "fr33k7d33k7"));
         all_texts.Add(("you good to drive after those shots?", "haha yeah i drive better drunk"));
         all_texts.Add(("can you pick up some chips on the way?", "only if you pay me back this time"));
         all_texts.Add(("Your dad and I are worried about you", "whatever"));
-        all_texts.Add(("I really had fun last night :)", "no offence but i didn't, sorry"));
-        all_texts.Add(("are you really too busy to respond??", "nah just driving, what's up?"));
-        all_texts.Add(("where's mike live?", "he's at 8301 scottfield rd now"));
-        all_texts.Add(("what do you want from applebees?", "pick me up some wings?"));
-        all_texts.Add(("you coming tomorrow?", "nah i don't think so"));
-        all_texts.Add(("what's the name of that show?", "tiger king, man you gotta watch"));
-        all_texts.Add(("did you take the car?","don't worry about it man"));
-        all_texts.Add(("whats the flavor of juice grandma likes?","mango watermelon kiwi banana"));
-        all_texts.Add(("Whats the code for the shed lock","it's 9261"));
-        all_texts.Add(("Want smthing from the grocery store?","apples, pretzels, milk, plz"));
-        all_texts.Add(("whats the model of your lawnmower?","its the XF950WXL"));
-        all_texts.Add(("wanna meet up friday 6pm?","sorry, i'll be busy gaming 6 to 12"));
-        all_texts.Add(("maybe you shouldn't text and drive??","don't worry, i'm a pro at mario kart"));
-        all_texts.Add(("how much did your phone cost you?","it was about 600 dollars"));
+        all_texts.Add(("I really had fun last night :)", "no offense but i didnt sorry"));
+        all_texts.Add(("are you really too busy to respond??", "nah just driving whats up"));
+        all_texts.Add(("where's mike live?", "hes at 81 north rd now"));
+        all_texts.Add(("what do you want from chipotle?", "pick me up a burrito"));
+        all_texts.Add(("you coming tomorrow?", "nah i dont think so"));
+        all_texts.Add(("what's the name of that show?", "tiger king go watch it"));
+        all_texts.Add(("did you take the car?","dont worry about it"));
+        all_texts.Add(("whats the flavor of juice grandma likes?","mango watermelon juice"));
+        all_texts.Add(("Whats the code for the shed lock","its 9261"));
+        all_texts.Add(("Want smthing from the grocery store?","apples pretzels milk plz"));
+        all_texts.Add(("whats the model of your lawnmower?","its the XF900"));
+        all_texts.Add(("wanna meet up friday 6pm?","sorry ill be busy gaming 6 to 12"));
+        all_texts.Add(("maybe you shouldn't text and drive??","dont worry im a pro at forza"));
+        all_texts.Add(("how much did your phone cost you?","about 600 dollars"));
         all_texts.Add(("wtf is your problem???","dunno"));
-        all_texts.Add(("hey where does ur sister live now?","shes at 3412 lakeview drive"));
-        all_texts.Add(("do you prefer mango or strawberry?","blueberry, obviously"));
+        all_texts.Add(("hey where does ur sister live now?","shes at 312 lakeview drive"));
+        all_texts.Add(("do you prefer mango or strawberry?","blueberry obviously"));
         all_texts.Add(("hey whats ur steam username?","Beefcakes9900"));
         all_texts.Add(("whats your twitter handle?","99GodOfBeef00"));
         all_texts.Add(("did u forget about dads bday???","Uhhhh"));
-        all_texts.Add(("hey when's your mom's birthday?","i think it's june 19th, 1963"));
-        all_texts.Add(("12 oz or 16 oz milkshake?","get me the 24 oz, im not a baby"));
+        all_texts.Add(("hey when's your mom's birthday?","i think its june 19 1963"));
+        all_texts.Add(("12 oz or 16 oz milkshake?","get me the 24 oz"));
+        
 
         all_texts.Shuffle();
     }
