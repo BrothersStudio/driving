@@ -7,6 +7,7 @@ public class Steering : MonoBehaviour
     public GameObject wheel;
     private Quaternion orig_rot;
 
+    public GameObject grab_cylinder;
     public GameObject car;
     private Direction direction_track = Direction.None;
     private float laternal_velocity_lerp = 0;
@@ -56,6 +57,7 @@ public class Steering : MonoBehaviour
         {
             drift = 0.0f;
             animation_t = Mathf.Clamp01(animation_t - Time.deltaTime);
+            grab_cylinder.SetActive(true);
 
             if (Input.GetAxis("Mouse X") < 0 && car.transform.position.x > -x_bounds)
             {
@@ -83,7 +85,6 @@ public class Steering : MonoBehaviour
             }
             else
             {
-                wheel.transform.rotation = orig_rot;
                 direction_track = Direction.None;
             }
 
@@ -95,6 +96,7 @@ public class Steering : MonoBehaviour
         }
         else
         {
+            grab_cylinder.SetActive(false);
             animation_t = Mathf.Clamp01(animation_t + Time.deltaTime);
             wheel.transform.rotation = orig_rot;
             if (drift == 0.0f)
