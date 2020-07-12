@@ -13,6 +13,9 @@ public class ComboBar : MonoBehaviour
     {
         animating = false;
 
+        transform.parent.Find("Multiplier").GetComponent<TMP_Text>().text = "";
+        transform.parent.Find("Multiplier").GetComponent<TMP_Text>().enabled = false;
+
         bar.GetComponent<RectTransform>().anchoredPosition = new Vector3(-2, 0);
     }
 
@@ -25,7 +28,6 @@ public class ComboBar : MonoBehaviour
     {
         animating = true;
         bar.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
-
         transform.parent.Find("Multiplier").GetComponent<TMP_Text>().text = combo.ToString() + "x";
         transform.parent.Find("Multiplier").GetComponent<TMP_Text>().enabled = true;
     }
@@ -37,11 +39,13 @@ public class ComboBar : MonoBehaviour
             Vector3 current_pos = bar.GetComponent<RectTransform>().anchoredPosition;
             current_pos.x -= Time.deltaTime * decrease_speed;
             bar.GetComponent<RectTransform>().anchoredPosition = current_pos;
-            if (current_pos.x < -1.3)
+            if (current_pos.x < -1.15)
             {
                 animating = false;
 
                 FindObjectOfType<Score>().ComboOver();
+                transform.parent.parent.GetComponent<AudioSource>().Play();
+
                 transform.parent.Find("Multiplier").GetComponent<TMP_Text>().text = "";
                 transform.parent.Find("Multiplier").GetComponent<TMP_Text>().enabled = false;
             }

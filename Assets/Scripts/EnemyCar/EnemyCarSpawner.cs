@@ -25,6 +25,8 @@ public class EnemyCarSpawner : MonoBehaviour
         }
         all_cars.Clear();
 
+        cooldown = 3.5f;
+        difficulty_timer = 0;
         speed_increase = 0;
         last_spawn = -5;
 
@@ -48,7 +50,7 @@ public class EnemyCarSpawner : MonoBehaviour
 
         if(difficulty_timer >= time_difficulty_increment)
         {
-            cooldown -= difficulty_increase;
+            cooldown = Mathf.Clamp(cooldown - difficulty_increase, 1.5f, 10);
             difficulty_timer = 0.0f;
         }
 
