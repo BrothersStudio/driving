@@ -28,6 +28,13 @@ public class TypingDetection : MonoBehaviour
     public ParticleSystem sent_particles;
     public ParticleSystem receive_particles;
 
+    private GameController game_con;
+
+    private void Awake()
+    {
+        game_con = FindObjectOfType<GameController>();
+    }
+
     public void Restart()
     {
         done_message = true;
@@ -120,7 +127,7 @@ public class TypingDetection : MonoBehaviour
     private void OnGUI()
     {
         Event e = Event.current;
-        if (e.isKey && !Input.GetMouseButton(0) && !done_message)
+        if (e.isKey && !Input.GetMouseButton(0) && !done_message && !game_con.IsGameOver())
         {
             // Some processing
             string code = e.keyCode.ToString().ToLower();
@@ -135,6 +142,10 @@ public class TypingDetection : MonoBehaviour
             else if (code == "slash")
             {
                 code = "?";
+            }
+            else if (code == "enter")
+            {
+                code = "return";
             }
             code = code.Replace("alpha", "");
             code = code.Replace("keypad", "");
