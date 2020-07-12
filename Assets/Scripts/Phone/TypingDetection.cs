@@ -100,6 +100,10 @@ public class TypingDetection : MonoBehaviour
             if (ind < current_match_string.Item2.Length)
             {
                 char_to_match = current_match_string.Item2[ind].ToString();
+                if (char_to_match == " ")
+                {
+                    char_to_match = current_match_string.Item2[ind + 1].ToString();
+                }
             }
             else
             {
@@ -118,10 +122,6 @@ public class TypingDetection : MonoBehaviour
             if (code == "quote")
             {
                 code = "'";
-            }
-            else if (code == "space")
-            {
-                code = " ";
             }
             else if (code == "comma")
             {
