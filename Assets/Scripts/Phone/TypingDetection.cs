@@ -176,7 +176,7 @@ public class TypingDetection : MonoBehaviour
         all_texts.Add(("you coming to the party later?", "idk, any girls coming?"));
         all_texts.Add(("bro, you slept with my girlfriend??", "you weren't dating that long chill"));
         all_texts.Add(("dude, what's the wifi password?", "fr33k7d33k7"));
-        all_texts.Add(("you good to drive after all those shots?", "haha yeah i drive better drunk"));
+        all_texts.Add(("you good to drive after those shots?", "haha yeah i drive better drunk"));
         all_texts.Add(("can you pick up some chips on the way?", "only if you pay me back this time"));
         all_texts.Add(("Your dad and I are worried about you", "whatever"));
         all_texts.Add(("I really had fun last night :)", "no offence but i didn't, sorry"));
