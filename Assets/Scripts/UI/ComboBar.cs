@@ -9,6 +9,13 @@ public class ComboBar : MonoBehaviour
     private float decrease_speed = 0.035f;
     private bool animating = false;
 
+    private GameController game_con;
+
+    private void Awake()
+    {
+        game_con = FindObjectOfType<GameController>();
+    }
+
     public void Restart()
     {
         animating = false;
@@ -34,7 +41,7 @@ public class ComboBar : MonoBehaviour
 
     private void Update()
     {
-        if (animating)
+        if (animating && !game_con.IsGameOver())
         {
             Vector3 current_pos = bar.GetComponent<RectTransform>().anchoredPosition;
             current_pos.x -= Time.deltaTime * decrease_speed;
