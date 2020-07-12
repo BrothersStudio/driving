@@ -7,7 +7,7 @@ public class Score : MonoBehaviour
 {
     private float played_sound_for_score = 0;
     private float score = 0;
-    private int combo = 1;
+    private int combo = 0;
 
     private GameController game_con;
 
@@ -20,7 +20,7 @@ public class Score : MonoBehaviour
     {
         played_sound_for_score = 0;
         score = 0;
-        combo = 1;
+        combo = 0;
         
         transform.parent.Find("Combo Bar Mask").GetComponent<ComboBar>().Restart();
     }
@@ -51,7 +51,7 @@ public class Score : MonoBehaviour
 
     public void ComboOver()
     {
-        combo = 1;
+        combo = 0;
     }
 
     public int GetScore()
