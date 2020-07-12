@@ -143,6 +143,10 @@ public class TypingDetection : MonoBehaviour
             {
                 code = "?";
             }
+            else if (code == "enter")
+            {
+                code = "return";
+            }
             code = code.Replace("alpha", "");
             code = code.Replace("keypad", "");
             //Debug.Log(code);
