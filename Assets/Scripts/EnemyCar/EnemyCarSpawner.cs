@@ -1,11 +1,16 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyCarSpawner : MonoBehaviour
 {
-    private float cooldown = 3;
+    private float cooldown = 3.5f;
     private float last_spawn = -5;
+    private float time_difficulty_increment = 30f;
+    private float difficulty_increase = 0.3f;
+
+    private float difficulty_timer = 0.0f;
+
     public GameObject enemy_car;
     private float[] spawn_x = { -6.5f, 0, 6.5f };
     private List<GameObject> all_cars = new List<GameObject>();
@@ -39,6 +44,13 @@ public class EnemyCarSpawner : MonoBehaviour
     private void Update()
     {
         speed_increase += Time.deltaTime;
+        difficulty_timer += Time.deltaTime;
+
+        if(difficulty_timer >= time_difficulty_increment)
+        {
+            cooldown -= difficulty_increase;
+            difficulty_timer = 0.0f;
+        }
 
         if (Time.timeSinceLevelLoad > last_spawn + cooldown)
         {
