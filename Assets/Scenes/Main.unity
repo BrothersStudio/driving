@@ -255,6 +255,8 @@ MonoBehaviour:
   road: {fileID: 672465465333282411, guid: 96e6b7436b967f245b4dd56fa203c5dc, type: 3}
   road_line: {fileID: 3968664465722608054, guid: 3d63a93857d5c9d459ee8ce16ce8a6d9,
     type: 3}
+  street_light: {fileID: 581123999233612946, guid: 1c1fbaa3191accd4e86b8188a1848286,
+    type: 3}
   all_scenery: []
 --- !u!1 &568415963
 GameObject:
@@ -1151,6 +1153,10 @@ PrefabInstance:
     - target: {fileID: 11406430, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 44786092, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
+      propertyPath: near clip plane
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 2081046689, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
       propertyPath: m_IsActive

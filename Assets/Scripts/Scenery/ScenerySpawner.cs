@@ -7,6 +7,7 @@ public class ScenerySpawner : MonoBehaviour
     public List<GameObject> trees;
     public GameObject road;
     public GameObject road_line;
+    public GameObject street_light;
 
     public List<GameObject> all_scenery = new List<GameObject>();
 
@@ -26,6 +27,7 @@ public class ScenerySpawner : MonoBehaviour
         SpawnRoads();
         SpawnLines();
         SpawnTrees();
+        SpawnStreetlights();
     }
 
     private void SpawnRoads()
@@ -33,18 +35,17 @@ public class ScenerySpawner : MonoBehaviour
         float i;
         for (i = -800; i <= 803; i += 8.8f)
         {
-            Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, transform);
+            all_scenery.Add(Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, transform));
         }
-        Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, transform);
+        all_scenery.Add(Instantiate(road, new Vector3(0, 0, i), road.transform.rotation, transform));
     }
 
     private void SpawnLines()
     {
-        float i;
-        for (i = -800; i <= 800; i += 10f)
+        for (float i = -800; i <= 800; i += 10f)
         {
-            Instantiate(road_line, new Vector3(2.8f, 0, i), road.transform.rotation, transform);
-            Instantiate(road_line, new Vector3(-2.8f, 0, i), road.transform.rotation, transform);
+            all_scenery.Add(Instantiate(road_line, new Vector3(2.8f, 0, i), road.transform.rotation, transform));
+            all_scenery.Add(Instantiate(road_line, new Vector3(-2.8f, 0, i), road.transform.rotation, transform));
         }
     }
 
@@ -86,5 +87,20 @@ public class ScenerySpawner : MonoBehaviour
             position.x = -position.x;
         }
         new_tree.transform.position = position;
+
+        all_scenery.Add(new_tree);
+    }
+
+    private void SpawnStreetlights()
+    {
+        for (float i = -800; i <= 800; i += 80f)
+        {
+            all_scenery.Add(Instantiate(street_light, new Vector3(11.3f, 4.4f, i), street_light.transform.rotation, transform));
+
+            GameObject left_light = Instantiate(street_light, new Vector3(-11.3f, 4.4f, i), street_light.transform.rotation, transform);
+            left_light.transform.Rotate(new Vector3(0, 0, 180));
+
+            all_scenery.Add(left_light);
+        }
     }
 }
