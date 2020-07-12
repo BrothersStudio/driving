@@ -47,11 +47,9 @@ public class TypingDetection : MonoBehaviour
         incoming_text.transform.parent.gameObject.SetActive(false);
         outgoing_text.gameObject.SetActive(false);
         sent_text.transform.parent.gameObject.SetActive(false);
-
-        Start();
     }
 
-    private void Start()
+    public void StartGame()
     {
         AddTexts();
         Invoke("NewTextArrives", 5);
@@ -154,7 +152,7 @@ public class TypingDetection : MonoBehaviour
             }
             code = code.Replace("alpha", "");
             code = code.Replace("keypad", "");
-            Debug.Log(code);
+            //Debug.Log(code);
 
             if (code == char_to_match.ToLower())
             {

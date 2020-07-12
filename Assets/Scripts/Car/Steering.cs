@@ -27,8 +27,13 @@ public class Steering : MonoBehaviour
     float horn_cooldown = 0.5f;
     float last_horn = 0;
 
+    private bool started = false;
+    private GameController game_con;
+
     public void Restart()
     {
+        started = false;
+
         direction_track = 0;
         laternal_velocity_lerp = 0;
 
@@ -46,10 +51,22 @@ public class Steering : MonoBehaviour
         cam = Camera.main.transform;
         driving_cam_loc = cam.transform.rotation;
         texting_cam_loc = Quaternion.Euler(new Vector3(45, 0, 0));
+
+        game_con = FindObjectOfType<GameController>();
     }
 
     private void Update()
     {
+        if (Input.anyKey && !started)
+        {
+            started = true;
+            game_con.StartGame();
+        }
+        else if (!started)
+        {
+            return;
+        }
+
         cam.rotation = Quaternion.Lerp(driving_cam_loc, texting_cam_loc, SmoothStart(animation_t));
         laternal_velocity_lerp = Mathf.Clamp01(laternal_velocity_lerp + (Time.deltaTime * 2));
 

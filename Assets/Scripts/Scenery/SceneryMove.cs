@@ -6,9 +6,19 @@ public class SceneryMove : MonoBehaviour
 {
     private float speed = 50;
 
+    private EnemyCarSpawner car_spawn;
+
+    private void Awake()
+    {
+        car_spawn = FindObjectOfType<EnemyCarSpawner>();
+    }
+
     private void Update()
     {
-        speed += Time.deltaTime / 2f;
+        if (car_spawn.started)
+        {
+            speed += Time.deltaTime / 2f;
+        }
 
         transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime), Space.World);
         if (transform.position.z < -800)

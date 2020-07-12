@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 8900000, guid: a7bed68887a07e34394d4191b3081359, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00046861474, g: 0.00029739965, b: 0.009837025, a: 1}
+  m_IndirectSpecularColor: {r: 0.00046864495, g: 0.00029745838, b: 0.009837285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -9175,6 +9175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1013851483}
   - component: {fileID: 1013851484}
+  - component: {fileID: 1013851485}
   m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
@@ -9246,6 +9247,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1013851485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013851482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be426d91d5acbb4bbdf1a58afcc8910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1120536656
 Transform:
   m_ObjectHideFlags: 0
@@ -9538,7 +9551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1199832913
 Transform:
   m_ObjectHideFlags: 0

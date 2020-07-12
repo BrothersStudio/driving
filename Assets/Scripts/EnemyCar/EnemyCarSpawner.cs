@@ -19,6 +19,7 @@ public class EnemyCarSpawner : MonoBehaviour
     private List<GameObject> all_cars = new List<GameObject>();
 
     private float speed_increase = 0;
+    public bool started = false;
 
     public void Restart()
     {
@@ -33,11 +34,13 @@ public class EnemyCarSpawner : MonoBehaviour
         speed_increase = 0;
         last_spawn = -5;
 
-        Start();
+        started = false;
     }
 
-    private void Start()
+    public void StartGame()
     {
+        started = true;
+
         SpawnCars(400f);
         SpawnCars(500f);
         SpawnCars(600f);
@@ -46,20 +49,22 @@ public class EnemyCarSpawner : MonoBehaviour
 
     private void Update()
     {
-        speed_increase += Time.deltaTime / 2f;
-        difficulty_timer += Time.deltaTime;
-
-
-        if(difficulty_timer >= time_difficulty_increment)
+        if (started)
         {
-            cooldown = Mathf.Clamp(cooldown - difficulty_increase, 1.5f, 10);
-            multicar_spawn_chance = Mathf.Clamp(multicar_spawn_chance + multicar_spawn_increase, 0.0f, 0.15f);
-            difficulty_timer = 0.0f;
-        }
+            speed_increase += Time.deltaTime / 2f;
+            difficulty_timer += Time.deltaTime;
 
-        if (Time.timeSinceLevelLoad > last_spawn + cooldown)
-        {
-            SpawnCars(800);
+            if (difficulty_timer >= time_difficulty_increment)
+            {
+                cooldown = Mathf.Clamp(cooldown - difficulty_increase, 1.5f, 10);
+                multicar_spawn_chance = Mathf.Clamp(multicar_spawn_chance + multicar_spawn_increase, 0.0f, 0.15f);
+                difficulty_timer = 0.0f;
+            }
+
+            if (Time.timeSinceLevelLoad > last_spawn + cooldown)
+            {
+                SpawnCars(800);
+            }
         }
     }
 

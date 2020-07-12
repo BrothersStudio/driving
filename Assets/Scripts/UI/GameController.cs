@@ -21,6 +21,12 @@ public class GameController : MonoBehaviour
 
     public GameObject player;
 
+    public void StartGame()
+    {
+        FindObjectOfType<EnemyCarSpawner>().StartGame();
+        FindObjectOfType<TypingDetection>().StartGame();
+    }
+
     public bool IsGameOver()
     {
         return waiting_for_restart;
@@ -105,5 +111,6 @@ public class GameController : MonoBehaviour
         FindObjectOfType<ScenerySpawner>().Restart();
         FindObjectOfType<Steering>().Restart();
         FindObjectOfType<CollisionDetection>().Restart();
+        FindObjectOfType<TitleDisappear>().Restart();
     }
 }
