@@ -7,7 +7,7 @@ public class EnemyCarSpawner : MonoBehaviour
     private float cooldown = 3;
     private float last_spawn = -5;
     public GameObject enemy_car;
-    private float[] spawn_x = { -5, 0, 5 };
+    private float[] spawn_x = { -6.5f, 0, 6.5f };
     private List<GameObject> all_cars = new List<GameObject>();
 
     private float speed_increase = 0;
