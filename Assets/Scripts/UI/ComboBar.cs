@@ -6,7 +6,7 @@ using TMPro;
 public class ComboBar : MonoBehaviour
 {
     private GameObject bar;
-    private float decrease_speed = 0.075f;
+    private float decrease_speed = 0.070f;
     private bool animating = false;
 
     public void Restart()
@@ -42,6 +42,7 @@ public class ComboBar : MonoBehaviour
                 animating = false;
 
                 FindObjectOfType<Score>().ComboOver();
+                transform.parent.Find("Multiplier").GetComponent<TMP_Text>().text = "";
                 transform.parent.Find("Multiplier").GetComponent<TMP_Text>().enabled = false;
             }
         }
