@@ -153,7 +153,7 @@ public class TypingDetection : MonoBehaviour
             }
             code = code.Replace("alpha", "");
             code = code.Replace("keypad", "");
-            //Debug.Log(code);
+            Debug.Log(code);
 
             if (code == char_to_match.ToLower())
             {

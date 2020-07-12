@@ -83,6 +83,7 @@ public class Steering : MonoBehaviour
             }
             else
             {
+                wheel.transform.rotation = orig_rot;
                 direction_track = Direction.None;
             }
 
