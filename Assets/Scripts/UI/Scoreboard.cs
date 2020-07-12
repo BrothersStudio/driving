@@ -23,6 +23,7 @@ public class Scoreboard : MonoBehaviour
         {
             highest_player_score = new_score;
         }
+        saved_scores.Add((player_name, new_score));
     }
 
     void InitializeFakeScores()
