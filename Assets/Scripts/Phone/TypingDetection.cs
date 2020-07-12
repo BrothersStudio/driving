@@ -201,7 +201,6 @@ public class TypingDetection : MonoBehaviour
         all_texts.Add(("dude, what's the wifi password?", "fr33k7d33k7"));
         all_texts.Add(("you good to drive after those shots?", "haha yeah i drive better drunk"));
         all_texts.Add(("can you pick up some chips on the way?", "only if you pay me back this time"));
-        all_texts.Add(("Your dad and I are worried about you", "whatever"));
         all_texts.Add(("I really had fun last night :)", "no offense but i didnt sorry"));
         all_texts.Add(("are you really too busy to respond??", "nah just driving whats up"));
         all_texts.Add(("where's mike live?", "hes at 81 north rd now"));
@@ -221,12 +220,13 @@ public class TypingDetection : MonoBehaviour
         all_texts.Add(("do you prefer mango or strawberry?","blueberry obviously"));
         all_texts.Add(("hey whats ur steam username?","Beefcakes9900"));
         all_texts.Add(("whats your twitter handle?","99GodOfBeef00"));
-        all_texts.Add(("did u forget about dads bday???","Uhhhh"));
+        all_texts.Add(("did u forget about dads bday???","uhhhhhhhh"));
         all_texts.Add(("hey when's your mom's birthday?","i think its june 19 1963"));
         all_texts.Add(("12 oz or 16 oz milkshake?","get me the 24 oz"));
         
-
         all_texts.Shuffle();
+
+        all_texts.Insert(0, ("Your dad and I are worried about you", "whatever"));
     }
 
     private (string, string) GetNewText()
