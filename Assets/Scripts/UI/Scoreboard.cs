@@ -28,10 +28,15 @@ public class Scoreboard : MonoBehaviour
 
     void InitializeFakeScores()
     {
-        saved_scores.Add(("Patrick", 235000000));
-        saved_scores.Add(("Joshua", 220500000));
-        saved_scores.Add(("Kevin", 195000000));
-        saved_scores.Add(("Christopher", 104000000));
-        
+        saved_scores.Add(("Patrick", 1));
+        saved_scores.Add(("Joshua", 2));
+        saved_scores.Add(("Kevin", 3));
+        saved_scores.Add(("Christopher", 4));
+        saved_scores.Add(("Stacey", 5));
+        saved_scores.Add(("Elizabeth", 6));
+        saved_scores.Add(("Barry", 7));
+        saved_scores.Add(("Emily", 8));
     }
+
+    
 }

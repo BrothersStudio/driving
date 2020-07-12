@@ -190,19 +190,19 @@ public class TypingDetection : MonoBehaviour
         all_texts.Clear();
         
         all_texts.Add(("hey man, what's your address again?", "its 814 north croskey ln"));
-        all_texts.Add(("you coming to the party later?", "idk any girls coming?"));
+        all_texts.Add(("you coming to the party later?", "idk any girls coming"));
         all_texts.Add(("bro, you slept with my girlfriend??", "you werent dating that long chill"));
         all_texts.Add(("dude, what's the wifi password?", "fr33k7d33k7"));
         all_texts.Add(("you good to drive after those shots?", "haha yeah i drive better drunk"));
         all_texts.Add(("can you pick up some chips on the way?", "only if you pay me back this time"));
         all_texts.Add(("Your dad and I are worried about you", "whatever"));
         all_texts.Add(("I really had fun last night :)", "no offense but i didnt sorry"));
-        all_texts.Add(("are you really too busy to respond??", "nah just driving whats up?"));
+        all_texts.Add(("are you really too busy to respond??", "nah just driving whats up"));
         all_texts.Add(("where's mike live?", "hes at 81 north rd now"));
         all_texts.Add(("what do you want from chipotle?", "pick me up a burrito"));
         all_texts.Add(("you coming tomorrow?", "nah i dont think so"));
         all_texts.Add(("what's the name of that show?", "tiger king go watch it"));
-        all_texts.Add(("did you take the car?","dont worry about it "));
+        all_texts.Add(("did you take the car?","dont worry about it"));
         all_texts.Add(("whats the flavor of juice grandma likes?","mango watermelon juice"));
         all_texts.Add(("Whats the code for the shed lock","its 9261"));
         all_texts.Add(("Want smthing from the grocery store?","apples pretzels milk plz"));
