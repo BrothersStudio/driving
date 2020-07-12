@@ -29,10 +29,12 @@ public class TypingDetection : MonoBehaviour
     public ParticleSystem receive_particles;
 
     private GameController game_con;
+    private Tutorial tutorial;
 
     private void Awake()
     {
         game_con = FindObjectOfType<GameController>();
+        tutorial = FindObjectOfType<Tutorial>();
     }
 
     public void Restart()
@@ -51,7 +53,7 @@ public class TypingDetection : MonoBehaviour
     private void Start()
     {
         AddTexts();
-        Invoke("NewTextArrives", 3);
+        Invoke("NewTextArrives", 5);
     }
 
     private void Update()
@@ -70,6 +72,8 @@ public class TypingDetection : MonoBehaviour
 
     private void NewIncomingString((string, string) new_message)
     {
+        tutorial.TextingExplanation();
+
         if (new_message.Item1 != null)
         {
             done_message = false;
@@ -166,6 +170,8 @@ public class TypingDetection : MonoBehaviour
                     GetComponent<AudioSource>().clip = send_sfx;
                     GetComponent<AudioSource>().volume = 1f;
                     GetComponent<AudioSource>().Play();
+
+                    tutorial.RemoveTutorial();
 
                     done_message = true;
                     Invoke("NewTextArrives", 3);
