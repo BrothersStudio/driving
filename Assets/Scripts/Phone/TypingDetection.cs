@@ -171,7 +171,7 @@ public class TypingDetection : MonoBehaviour
     private void AddTexts()
     {
         all_texts.Clear();
-
+        
         all_texts.Add(("hey man, what's your address again?", "it's 2814 north croskey lane"));
         all_texts.Add(("you coming to the party later?", "idk, any girls coming?"));
         all_texts.Add(("bro, you slept with my girlfriend??", "you weren't dating that long chill"));
@@ -188,7 +188,25 @@ public class TypingDetection : MonoBehaviour
         all_texts.Add(("Whats your dogs name?","pippinpaddleopsido"));
         all_texts.Add(("did you take the car?","don't worry about it man"));
         all_texts.Add(("whats the flavor of juice grandma likes?","mango watermelon kiwi banana"));
-        all_texts.Add(("Whats the code for the shed lock","it's 9261"));
+        all_texts.Add(("Whats the code for the shed lock","it's 9261"));\
+
+        // FOR PATRICK: THESE ARE ALL NEW:
+        
+        all_texts.Add(("Want smthing from the grocery store?","apples, pretzels, milk, plz"));
+        all_texts.Add(("whats the model of your lawnmower?","its the XF950WXL"));
+        all_texts.Add(("wanna meet up friday 6pm?","sorry, i'll be busy gaming 6 to 12"));
+        all_texts.Add(("maybe you shouldn't text and drive??","don't worry, i'm a pro at mario kart"));
+        all_texts.Add(("how much did your phone cost you?","It was about 600 dollars"));
+        all_texts.Add(("wtf is your problem???","i didn't do anything"));
+        all_texts.Add(("hey where does ur sister live now?","shes at 3412 lakeview drive"));
+        all_texts.Add(("do you prefer mango or strawberry?","blueberry, obviously"));
+        all_texts.Add(("hey whats ur steam username?","Beefcakes9900"));
+        all_texts.Add(("whats your twitter handle?","99GodOfBeef00"));
+        all_texts.Add(("i need ur calculator for a test","is a TI-245II-X13 ok?"));
+        all_texts.Add(("did u forget about ur dads bday???","Uhhhh"));
+        all_texts.Add(("hey whens your mom's birthday?","i think it's june 19th, 1963"));
+        all_texts.Add(("12 oz or 16 oz milkshake?","get me the 24 oz, im not a baby"));
+        all_texts.Add(("lmk ur SSN. its for money!","141-59-9390"));
 
         all_texts.Shuffle();
     }
