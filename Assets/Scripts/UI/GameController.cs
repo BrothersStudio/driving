@@ -62,6 +62,7 @@ public class GameController : MonoBehaviour
         FindObjectOfType<TypingDetection>().Restart();
         FindObjectOfType<Score>().Restart();
         FindObjectOfType<EnemyCarSpawner>().Restart();
+        FindObjectOfType<ScenerySpawner>().Restart();
         FindObjectOfType<Steering>().Restart();
         FindObjectOfType<CollisionDetection>().Restart();
     }

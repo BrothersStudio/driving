@@ -46,6 +46,8 @@ public class EnemyCar : MonoBehaviour
     {
         speed += Time.deltaTime;
 
+        PreventCollision();
+
         transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime), Space.World);
         if (transform.position.z < -100)
         {
@@ -53,9 +55,9 @@ public class EnemyCar : MonoBehaviour
         }
     }
 
-    private void FixedUpdate() 
+    public void SetSpeedIncrease(float speed_increase)
     {
-        PreventCollision();
+        speed += speed_increase;
     }
 
     public float getSpeed()
@@ -82,5 +84,4 @@ public class EnemyCar : MonoBehaviour
             source.Play();
         }
     }
-
 }

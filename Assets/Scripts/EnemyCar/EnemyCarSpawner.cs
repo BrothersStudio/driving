@@ -9,7 +9,9 @@ public class EnemyCarSpawner : MonoBehaviour
     public GameObject enemy_car;
     private float[] spawn_x = { -5, 0, 5 };
     private List<GameObject> all_cars = new List<GameObject>();
-     
+
+    private float speed_increase = 0;
+
     public void Restart()
     {
         foreach (GameObject car in all_cars)
@@ -17,7 +19,8 @@ public class EnemyCarSpawner : MonoBehaviour
             Destroy(car);
         }
         all_cars.Clear();
-        
+
+        speed_increase = 0;
         last_spawn = -5;
 
         Start();
@@ -35,6 +38,8 @@ public class EnemyCarSpawner : MonoBehaviour
 
     private void Update()
     {
+        speed_increase += Time.deltaTime;
+
         if (Time.timeSinceLevelLoad > last_spawn + cooldown)
         {
             SpawnCars(800);
@@ -44,10 +49,15 @@ public class EnemyCarSpawner : MonoBehaviour
     private void SpawnCars(float dist)
     {
         last_spawn = Time.timeSinceLevelLoad;
-        all_cars.Add(Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist), Quaternion.identity, transform));
+
+        GameObject new_car = Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist), Quaternion.identity, transform);
+        new_car.GetComponent<EnemyCar>().SetSpeedIncrease(speed_increase);
+        all_cars.Add(new_car);
         if (Random.Range(0f, 1f) < 0.5f)
         {
-            all_cars.Add(Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist), Quaternion.identity, transform));
+            GameObject second_car = Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist), Quaternion.identity, transform);
+            second_car.GetComponent<EnemyCar>().SetSpeedIncrease(speed_increase);
+            all_cars.Add(second_car);
         }
     }
 }
