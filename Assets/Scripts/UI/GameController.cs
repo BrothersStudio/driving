@@ -7,10 +7,17 @@ public class GameController : MonoBehaviour
 {
     private Color text_color = Color.white;
 
+    private int user_score;
+    public Scoreboard score_screen;
     public GameObject game_over_screen;
     public TMP_Text final_score;
     public TMP_Text space_to_restart;
+
+    private float death_time = 0;
+    private float typing_buffer = 1;
+
     private bool waiting_for_restart = false;
+    private bool viewing_scores = false;
 
     public GameObject player;
 
@@ -23,15 +30,19 @@ public class GameController : MonoBehaviour
     {
         if (!waiting_for_restart)
         {
+            death_time = Time.timeSinceLevelLoad;
             waiting_for_restart = true;
+
+            final_score.gameObject.SetActive(true);
+            space_to_restart.gameObject.SetActive(true);
 
             // Stop other sounds
             FindObjectOfType<MusicController>().Stop();
             player.GetComponent<AudioSource>().Stop();
             GetComponent<AudioSource>().Play();
 
-            float score = FindObjectOfType<Score>().GetScore();
-            game_over_screen.transform.Find("Final Score").GetComponent<TMP_Text>().text = $"{score:000000}";
+            user_score = FindObjectOfType<Score>().GetScore();
+            game_over_screen.transform.Find("Final Score").GetComponent<TMP_Text>().text = $"{user_score:000000}";
 
             game_over_screen.SetActive(true);
 
@@ -52,15 +63,35 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && waiting_for_restart)
+        if (Input.GetKeyDown(KeyCode.Space) && 
+            waiting_for_restart && 
+            !viewing_scores &&
+            Time.timeSinceLevelLoad > death_time + typing_buffer)
+        {
+            DisplayScores(user_score);
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && 
+            waiting_for_restart && 
+            viewing_scores)
         {
             Restart();
         }
     }
 
+    private void DisplayScores(int user_score)
+    {
+        viewing_scores = true;
+
+        final_score.gameObject.SetActive(false);
+        space_to_restart.gameObject.SetActive(false);
+
+        score_screen.Display(user_score);
+    }
+
     private void Restart()
     {
         waiting_for_restart = false;
+        viewing_scores = false;
         game_over_screen.SetActive(false);
 
         FindObjectOfType<MusicController>().Play();

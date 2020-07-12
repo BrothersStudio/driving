@@ -54,8 +54,8 @@ public class Score : MonoBehaviour
         combo = 1;
     }
 
-    public float GetScore()
+    public int GetScore()
     {
-        return score;
+        return Mathf.CeilToInt(score);
     }
 }
