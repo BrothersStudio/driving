@@ -127,18 +127,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 873306909}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &23335557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23335556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 218697a82c650744d871fc3433f8039f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &220278151
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +524,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0c1164a1d64f6fd49aed640913fc6d16,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.6
+      value: 9.8
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0c1164a1d64f6fd49aed640913fc6d16,
         type: 3}
@@ -1138,41 +1126,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 10820726, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
-      propertyPath: m_Range
-      value: 20
+    - target: {fileID: 1127508648, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.92549026
       objectReference: {fileID: 0}
-    - target: {fileID: 10820726, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
-      propertyPath: m_Intensity
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 10897676, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
-      propertyPath: m_SpotAngle
-      value: 63.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 10897676, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
-      propertyPath: m_InnerSpotAngle
-      value: 63.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 10897676, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
-      propertyPath: m_Range
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 10897676, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
-      propertyPath: m_Intensity
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11406430, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 44786092, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
-      propertyPath: near clip plane
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081046689, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 1127508648, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.15294118
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
@@ -1485,7 +1445,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0c1164a1d64f6fd49aed640913fc6d16,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.6
+      value: -9.8
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0c1164a1d64f6fd49aed640913fc6d16,
         type: 3}
@@ -1559,62 +1519,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c1164a1d64f6fd49aed640913fc6d16, type: 3}
---- !u!1 &1590440715 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1904133369, guid: 271f6c29f65972d4492013b8893175b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 873306909}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1590440720
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590440715}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1725722977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,7 +1563,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e65f0ba3621a05b4d965745613916be3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.678
   m_Pitch: 1
   Loop: 0
   Mute: 0

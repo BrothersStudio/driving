@@ -31,13 +31,17 @@ public class TypingDetection : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = blank_phone;
         CancelInvoke();
 
+        GetComponent<SpriteRenderer>().sprite = blank_phone;
+        incoming_text.transform.parent.gameObject.SetActive(false);
+        outgoing_text.gameObject.SetActive(false);
+
         Start();
     }
 
     private void Start()
     {
         AddTexts();
-        NewTextArrives();
+        Invoke("NewTextArrives", 3);
     }
 
     private void Update()
@@ -172,7 +176,7 @@ public class TypingDetection : MonoBehaviour
         all_texts.Add(("you coming to the party later?", "idk, any girls coming?"));
         all_texts.Add(("bro, you slept with my girlfriend??", "you weren't dating that long chill"));
         all_texts.Add(("dude, what's the wifi password?", "fr33k7d33k7"));
-        all_texts.Add(("you good to drive after all those shots?", "haha yeah i drive better drunk"));
+        all_texts.Add(("you good to drive after those shots?", "haha yeah i drive better drunk"));
         all_texts.Add(("can you pick up some chips on the way?", "only if you pay me back this time"));
         all_texts.Add(("Your dad and I are worried about you", "whatever"));
         all_texts.Add(("I really had fun last night :)", "no offence but i didn't, sorry"));
@@ -181,7 +185,7 @@ public class TypingDetection : MonoBehaviour
         all_texts.Add(("what do you want from applebees?", "pick me up some wings?"));
         all_texts.Add(("what's the name of that show?", "tiger king, man you gotta watch"));
         all_texts.Add(("Charges remaining on your U-haul order...", "STOP"));
-        all_texts.Add(("Whats your dogs name?","pippinpaddleopsicopolis"));
+        all_texts.Add(("Whats your dogs name?","pippinpaddleopsido"));
         all_texts.Add(("did you take the car?","don't worry about it man"));
         all_texts.Add(("whats the flavor of juice grandma likes?","mango watermelon kiwi banana"));
         all_texts.Add(("Whats the code for the shed lock","it's 9261"));

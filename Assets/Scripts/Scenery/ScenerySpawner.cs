@@ -44,8 +44,8 @@ public class ScenerySpawner : MonoBehaviour
     {
         for (float i = -800; i <= 800; i += 10f)
         {
-            all_scenery.Add(Instantiate(road_line, new Vector3(2.8f, 0, i), road.transform.rotation, transform));
-            all_scenery.Add(Instantiate(road_line, new Vector3(-2.8f, 0, i), road.transform.rotation, transform));
+            all_scenery.Add(Instantiate(road_line, new Vector3(2.8f, 0.1f, i), road.transform.rotation, transform));
+            all_scenery.Add(Instantiate(road_line, new Vector3(-2.8f, 0.1f, i), road.transform.rotation, transform));
         }
     }
 

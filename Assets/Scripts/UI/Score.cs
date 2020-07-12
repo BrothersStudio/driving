@@ -21,6 +21,7 @@ public class Score : MonoBehaviour
     public void Text()
     {
         score *= 2;
+        transform.parent.Find("Multiplier").gameObject.SetActive(true);
     }
 
     public float GetScore()

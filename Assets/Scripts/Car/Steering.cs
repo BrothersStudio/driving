@@ -9,7 +9,7 @@ public class Steering : MonoBehaviour
 
     public GameObject car;
     private float lateral_velocity = 20;
-    private float x_bounds = 8.8f;
+    private float x_bounds = 8f;
 
     private float drift = 0.0f;
     private float drift_min = -1.0f;
@@ -79,6 +79,20 @@ public class Steering : MonoBehaviour
             {
                 car.transform.Translate(new Vector3(drift * Time.deltaTime, 0, 0));
             }
+        }
+
+        // Force in-bounds
+        if (car.transform.position.x > x_bounds)
+        {
+            Vector3 pos = car.transform.position;
+            pos.x = x_bounds;
+            car.transform.position = pos;
+        }
+        else if (car.transform.position.x < -x_bounds)
+        {
+            Vector3 pos = car.transform.position;
+            pos.x = -x_bounds;
+            car.transform.position = pos;
         }
     }
 
