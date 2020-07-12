@@ -93,7 +93,7 @@ public class ScenerySpawner : MonoBehaviour
 
     private void SpawnStreetlights()
     {
-        for (float i = -800; i <= 800; i += 80f)
+        for (float i = -800; i <= 800; i += 160f)
         {
             all_scenery.Add(Instantiate(street_light, new Vector3(11.3f, 4.4f, i), street_light.transform.rotation, transform));
 
