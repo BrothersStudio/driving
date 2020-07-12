@@ -82,17 +82,17 @@ public class Steering : MonoBehaviour
         }
 
         // Force in-bounds
-        if (transform.position.x > x_bounds)
+        if (car.transform.position.x > x_bounds)
         {
-            Vector3 pos = transform.position;
+            Vector3 pos = car.transform.position;
             pos.x = x_bounds;
-            transform.position = pos;
+            car.transform.position = pos;
         }
-        else if (transform.position.x < -x_bounds)
+        else if (car.transform.position.x < -x_bounds)
         {
-            Vector3 pos = transform.position;
+            Vector3 pos = car.transform.position;
             pos.x = -x_bounds;
-            transform.position = pos;
+            car.transform.position = pos;
         }
     }
 

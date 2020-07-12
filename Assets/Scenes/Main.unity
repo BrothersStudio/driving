@@ -1170,8 +1170,22 @@ PrefabInstance:
       propertyPath: near clip plane
       value: 0.04
       objectReference: {fileID: 0}
+    - target: {fileID: 1671983295, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2081046689, guid: 271f6c29f65972d4492013b8893175b2, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995836867391989658, guid: 271f6c29f65972d4492013b8893175b2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995836867391989658, guid: 271f6c29f65972d4492013b8893175b2,
+        type: 3}
+      propertyPath: m_Center.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1659,7 +1673,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e65f0ba3621a05b4d965745613916be3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.678
   m_Pitch: 1
   Loop: 0
   Mute: 0
