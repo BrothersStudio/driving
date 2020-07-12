@@ -7,10 +7,13 @@ public class EnemyCar : MonoBehaviour
 {
     private float speed;
 
+    private AudioSource source;
+
     public List<Material> paint_colors;
 
     private void Start()
     {
+        source = GetComponent<AudioSource>();
         speed = Random.Range(15.0f, 30.0f);
         Material paint_chosen = paint_colors[Random.Range(0, paint_colors.Count)];
 
@@ -52,7 +55,7 @@ public class EnemyCar : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        PreventCollision();    
+        PreventCollision();
     }
 
     public float getSpeed()
@@ -72,6 +75,12 @@ public class EnemyCar : MonoBehaviour
             {
                 this.speed = colliderSpeed;
             }
+        } 
+        if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), transform.TransformDirection(Vector3.forward), out hit, 10f) && hit.collider.CompareTag("Player"))
+        {
+            source.pitch = Random.Range(0.75f, 1.25f);
+            source.Play();
         }
     }
+
 }
