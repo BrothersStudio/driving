@@ -8366,7 +8366,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c4d8928c75c21af43998193f0f038429, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.51
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9533,6 +9533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_car: {fileID: 136596, guid: 23f8c5a93bb7af746995d8b919a1c917, type: 3}
+  started: 0
 --- !u!1 &1199832912
 GameObject:
   m_ObjectHideFlags: 0

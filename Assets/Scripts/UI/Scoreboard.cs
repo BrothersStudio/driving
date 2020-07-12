@@ -85,15 +85,15 @@ public class Scoreboard : MonoBehaviour
         saved_scores.Clear();
         
         saved_scores.Add(("mike", 691));
+        saved_scores.Add(("stacey", 590));
         saved_scores.Add(("will", 572));
+        saved_scores.Add(("patrick", 453));
+        saved_scores.Add(("elizabeth", 400));
         saved_scores.Add(("emily", 382));
+        saved_scores.Add(("christopher", 220));
         saved_scores.Add(("nick", 110));
-        saved_scores.Add(("barry", 7));
-        saved_scores.Add(("elizabeth", 6));
-        saved_scores.Add(("stacey", 5));
-        saved_scores.Add(("christopher", 4));
-        saved_scores.Add(("kevin", 3));
-        saved_scores.Add(("joshua", 2));
-        saved_scores.Add(("patrick", 1));
+        saved_scores.Add(("barry", 60));
+        saved_scores.Add(("kevin", 37));
+        saved_scores.Add(("joshua", 20));
     }
 }
