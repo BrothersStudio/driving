@@ -12,9 +12,16 @@ public class Scoreboard : MonoBehaviour
     public GameObject score_line;
     public Transform scoreboard;
     public Color user_color;
+    private List<GameObject> generated_lines = new List<GameObject>();
 
     public void Display(int user_score)
     {
+        foreach (GameObject line in generated_lines)
+        {
+            Destroy(line);
+        }
+        generated_lines.Clear();
+
         if (user_score > highest_player_score)
         {
             highest_player_score = user_score;
@@ -43,6 +50,7 @@ public class Scoreboard : MonoBehaviour
                 user_text += highest_player_score.ToString();
                 user_line.GetComponent<TMP_Text>().text = user_text;
                 user_line.GetComponent<TMP_Text>().color = user_color;
+                generated_lines.Add(user_line);
             }
 
             GameObject new_line = Instantiate(score_line, scoreboard);
@@ -54,6 +62,21 @@ public class Scoreboard : MonoBehaviour
             }
             line_text += score.Item2.ToString();
             new_line.GetComponent<TMP_Text>().text = line_text;
+            generated_lines.Add(new_line);
+        }
+
+        if (!player_score_drawn)
+        {
+            GameObject user_line = Instantiate(score_line, scoreboard);
+            string user_text = "you";
+            for (int i = 0; i < 41 - 3 - highest_player_score.ToString().Length; i++)
+            {
+                user_text += ".";
+            }
+            user_text += highest_player_score.ToString();
+            user_line.GetComponent<TMP_Text>().text = user_text;
+            user_line.GetComponent<TMP_Text>().color = user_color;
+            generated_lines.Add(user_line);
         }
     }
 
@@ -61,6 +84,8 @@ public class Scoreboard : MonoBehaviour
     {
         saved_scores.Clear();
         
+        saved_scores.Add(("mike", 691));
+        saved_scores.Add(("will", 572));
         saved_scores.Add(("emily", 8));
         saved_scores.Add(("barry", 7));
         saved_scores.Add(("elizabeth", 6));

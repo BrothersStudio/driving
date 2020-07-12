@@ -16269,7 +16269,7 @@ GameObject:
   - component: {fileID: 2051501569}
   - component: {fileID: 2051501568}
   m_Layer: 5
-  m_Name: Space for Scoreboard
+  m_Name: Space to Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16312,7 +16312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: space for scoreboard
+  m_text: space to continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 86a57bea3e431bc45938de5980a6522b, type: 2}
   m_sharedMaterial: {fileID: 6572839766127641516, guid: 86a57bea3e431bc45938de5980a6522b,

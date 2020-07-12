@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour
             death_time = Time.timeSinceLevelLoad;
             waiting_for_restart = true;
 
+            score_screen.gameObject.SetActive(false);
             final_score.gameObject.SetActive(true);
             space_to_restart.gameObject.SetActive(true);
 
