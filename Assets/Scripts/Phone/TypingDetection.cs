@@ -25,6 +25,9 @@ public class TypingDetection : MonoBehaviour
     public AudioClip send_sfx;
     public AudioClip receive_sfx;
 
+    public ParticleSystem sent_particles;
+    public ParticleSystem receive_particles;
+
     public void Restart()
     {
         done_message = true;
@@ -46,6 +49,7 @@ public class TypingDetection : MonoBehaviour
 
     private void Update()
     {
+        // For checking the text spacing
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //NewTextArrives();
@@ -73,7 +77,8 @@ public class TypingDetection : MonoBehaviour
 
             HighlightUpToInd(match_index);
 
-            // Receive message sfx
+            // Receive message sfx and particles
+            receive_particles.Play();
             GetComponent<AudioSource>().clip = receive_sfx;
             GetComponent<AudioSource>().volume = 1f;
             GetComponent<AudioSource>().Play();
@@ -145,7 +150,8 @@ public class TypingDetection : MonoBehaviour
 
                     FindObjectOfType<Score>().Text();
 
-                    // Send message sfx
+                    // Send message sfx and particles
+                    sent_particles.Play();
                     GetComponent<AudioSource>().clip = send_sfx;
                     GetComponent<AudioSource>().volume = 1f;
                     GetComponent<AudioSource>().Play();
