@@ -6,9 +6,12 @@ public class EnemyCarSpawner : MonoBehaviour
 {
     private float cooldown = 3.5f;
     private float last_spawn = -5;
-    private float time_difficulty_increment = 30f;
+    private float time_difficulty_increment = 28f;
     private float difficulty_increase = 0.3f;
 
+    private float multicar_spawn_chance = 0.00f;
+    private float multicar_spawn_increase = 0.03f;
+    
     private float difficulty_timer = 0.0f;
 
     public GameObject enemy_car;
@@ -48,9 +51,11 @@ public class EnemyCarSpawner : MonoBehaviour
         speed_increase += Time.deltaTime;
         difficulty_timer += Time.deltaTime;
 
+
         if(difficulty_timer >= time_difficulty_increment)
         {
             cooldown = Mathf.Clamp(cooldown - difficulty_increase, 1.5f, 10);
+            multicar_spawn_chance = Mathf.Clamp(multicar_spawn_chance + multicar_spawn_increase, 0.0f, 0.15f);
             difficulty_timer = 0.0f;
         }
 
@@ -64,14 +69,21 @@ public class EnemyCarSpawner : MonoBehaviour
     {
         last_spawn = Time.timeSinceLevelLoad;
 
-        GameObject new_car = Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist), Quaternion.identity, transform);
+        GameObject new_car = Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist + Random.Range(-50f, 50f)), Quaternion.identity, transform);
         new_car.GetComponent<EnemyCar>().SetSpeedIncrease(speed_increase);
         all_cars.Add(new_car);
-        if (Random.Range(0f, 1f) < 0.5f)
+        if (Random.Range(0f, 1f) < (0.5f + multicar_spawn_chance))
         {
-            GameObject second_car = Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist), Quaternion.identity, transform);
+            GameObject second_car = Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist + Random.Range(-50f, 50f)), Quaternion.identity, transform);
             second_car.GetComponent<EnemyCar>().SetSpeedIncrease(speed_increase);
             all_cars.Add(second_car);
+
+            if(Random.Range(0f, 1f) < (0.25f + multicar_spawn_chance))
+            {
+                GameObject third_car = Instantiate(enemy_car, new Vector3(spawn_x[Random.Range(0, spawn_x.Length)], 0, dist + Random.Range(-50f, 50f)), Quaternion.identity, transform);
+                third_car.GetComponent<EnemyCar>().SetSpeedIncrease(speed_increase);
+                all_cars.Add(third_car);
+            }
         }
     }
 }
