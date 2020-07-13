@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public GameObject game_over_screen;
     public TMP_Text final_score;
     public TMP_Text space_to_restart;
+    public TMP_Text gameOverText;
 
     private float death_time = 0;
     private float typing_buffer = 1;
@@ -37,11 +38,10 @@ public class GameController : MonoBehaviour
         if (!waiting_for_restart)
         {
             death_time = Time.timeSinceLevelLoad;
-            waiting_for_restart = true;
 
             score_screen.gameObject.SetActive(false);
             final_score.gameObject.SetActive(true);
-            space_to_restart.gameObject.SetActive(true);
+            gameOverText.gameObject.SetActive(true);
 
             // Stop other sounds
             FindObjectOfType<MusicController>().Stop();
@@ -54,6 +54,25 @@ public class GameController : MonoBehaviour
             game_over_screen.SetActive(true);
 
             StartCoroutine(FadeIn());
+
+            Invoke(nameof(WaitForRestart), 3);
+        }
+    }
+
+    public void WaitForRestart()
+    {
+        waiting_for_restart = true;
+        space_to_restart.gameObject.SetActive(true);
+        StartCoroutine(FadeInRestart());
+    }
+
+    private IEnumerator FadeInRestart()
+    {
+        for (int i = 0; i < 255; i++)
+        {
+            text_color.a = i / 255f;
+            space_to_restart.color = text_color;
+            yield return new WaitForSeconds(0.02f);
         }
     }
 
@@ -63,7 +82,7 @@ public class GameController : MonoBehaviour
         {
             text_color.a = i / 255f;
             final_score.color = text_color;
-            space_to_restart.color = text_color;
+            gameOverText.color = text_color;
             yield return new WaitForSeconds(0.02f);
         }
     }
@@ -91,6 +110,7 @@ public class GameController : MonoBehaviour
 
         final_score.gameObject.SetActive(false);
         space_to_restart.gameObject.SetActive(false);
+        gameOverText.gameObject.SetActive(false);
 
         score_screen.Display(user_score);
     }
