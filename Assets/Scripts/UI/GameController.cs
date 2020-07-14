@@ -37,7 +37,6 @@ public class GameController : MonoBehaviour
         if (!waiting_for_restart)
         {
             death_time = Time.timeSinceLevelLoad;
-            waiting_for_restart = true;
 
             score_screen.gameObject.SetActive(false);
             final_score.gameObject.SetActive(true);
@@ -54,7 +53,14 @@ public class GameController : MonoBehaviour
             game_over_screen.SetActive(true);
 
             StartCoroutine(FadeIn());
+
+            Invoke(nameof(WaitForRestart), 0.5f);
         }
+    }
+
+    public void WaitForRestart()
+    {
+        waiting_for_restart = true;
     }
 
     private IEnumerator FadeIn()
